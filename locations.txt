@@ -1,0 +1,4 @@
+# location identifier, x coordinate, y coordinate
+0, 357, 285
+1, 372, 356
+2, 423, 502
