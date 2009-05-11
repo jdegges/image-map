@@ -1,8 +1,12 @@
 <?php
 
+$scale = 1;
+if(isset($_GET['scale']) && is_numeric($_GET['scale'])) {
+    $scale = $_GET['scale'];
+}
+
 $width  = 1500;
 $height = 1500;
-$scale  = 1;
 $radius = 8*$scale;
 
 /* print header */
@@ -29,8 +33,8 @@ function echo_locations($locs) {
     global $scale;
     global $radius;
     foreach ($locs as $loc) {
-        echo "\t\t<AREA HREF=\"image-map.php?loc=$loc[0]\" ALT=\"$loc[0]\" ";
-        echo "TITLE=\"$loc[0]\" SHAPE=CIRCLE ";
+        echo "\t\t<AREA HREF=\"image-map.php?scale=$scale&loc=$loc[0]\" ";
+        echo "ALT=\"$loc[0]\" TITLE=\"$loc[0]\" SHAPE=CIRCLE ";
         echo "COORDS=\"".$loc[1]*$scale.", ".$loc[2]*$scale.", $radius\">\n";
     }
 }
